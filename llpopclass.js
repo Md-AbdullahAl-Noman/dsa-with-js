@@ -40,6 +40,18 @@ class LinkedList {
     }
     return temp;
   }
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
@@ -48,3 +60,6 @@ myLinkedList.push(6);
 console.log('myLinkedList: ', myLinkedList);
 // console.log('Popped Node:', myLinkedList.pop());
 // console.log(myLinkedList);
+console.log('Unshifted means adding at the beginning:');
+myLinkedList.unshift(0);
+console.log('myLinkedList after unshift:', myLinkedList);
