@@ -52,18 +52,26 @@ class LinkedList {
     this.length++;
     return this;
   }
-  shift(){
-    if(!this.head) return undefined
-    let temp=this.head
-    this.head=this.head.next
+  shift() {
+    if (!this.head) return undefined;
+    let temp = this.head;
+    this.head = this.head.next;
 
-    this.length--
-    if(this.length===0){
-      this.tail=null
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
     }
-    temp.next=null
-    return temp
+    temp.next = null;
+    return temp;
   }
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  } //get method to retrieve a node by its index
 }
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
@@ -76,4 +84,5 @@ console.log('Unshifted means adding at the beginning:');
 myLinkedList.unshift(0);
 console.log('myLinkedList after unshift:', myLinkedList);
 console.log('Shifted Node:', myLinkedList.shift());
-console.log("myLinkedList after shift:", myLinkedList);
+console.log('myLinkedList after shift:', myLinkedList);
+console.log('Get Node at index 2:', myLinkedList.get(8));//undefined
