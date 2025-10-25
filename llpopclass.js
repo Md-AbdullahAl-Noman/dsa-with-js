@@ -72,6 +72,14 @@ class LinkedList {
     }
     return temp;
   } //get method to retrieve a node by its index
+  set(index, value) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    }
+    return false;
+  }
 }
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
@@ -85,4 +93,6 @@ myLinkedList.unshift(0);
 console.log('myLinkedList after unshift:', myLinkedList);
 console.log('Shifted Node:', myLinkedList.shift());
 console.log('myLinkedList after shift:', myLinkedList);
-console.log('Get Node at index 2:', myLinkedList.get(8));//undefined
+// console.log('Get Node at index 2:', myLinkedList.get(8)); //undefined
+console.log('Get Node at index 2:', myLinkedList.get(2)); //Node with value 4
+console.log('Set Node at index 2:', myLinkedList.set(2, 8)); //Node with value 8
