@@ -52,6 +52,18 @@ class LinkedList {
     this.length++;
     return this;
   }
+  shift(){
+    if(!this.head) return undefined
+    let temp=this.head
+    this.head=this.head.next
+
+    this.length--
+    if(this.length===0){
+      this.tail=null
+    }
+    temp.next=null
+    return temp
+  }
 }
 const myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
@@ -63,3 +75,5 @@ console.log('myLinkedList: ', myLinkedList);
 console.log('Unshifted means adding at the beginning:');
 myLinkedList.unshift(0);
 console.log('myLinkedList after unshift:', myLinkedList);
+console.log('Shifted Node:', myLinkedList.shift());
+console.log("myLinkedList after shift:", myLinkedList);
